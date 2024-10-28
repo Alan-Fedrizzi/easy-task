@@ -1,0 +1,26 @@
+<app-card>
+  <!-- [ngClass]="{'active': selected}" -->
+  <button [class.active]="selected" (click)="onSelectUser()">
+    <!-- com @Input -->
+    <img [src]="imagePath" [alt]="imageAlt" />
+    <span>{{ user.name }}</span>
+
+    <!-- com um input como signal, chamando input(), temos que chamar o name como uma funcion -->
+    <!-- <img [src]="imagePath()" [alt]="imageAlt()" />
+    <span>{{ name() }}</span> -->
+
+    <!-- [src]="'assets/users/' + selectedUser.avatar" -->
+    <!-- [alt]="'Photo of ' + selectedUser.name" -->
+    <!-- <img [src]="imagePath" [alt]="imageAlt" /> -->
+    <!-- com signals tem que chamar como função, pois é um signal -->
+    <!-- <img [src]="imagePath()" [alt]="imageAlt()" /> -->
+    <!-- <span>{{ selectedUser.name }}</span> -->
+    <!-- com signal, temos que chamar o valor do signal como uma função -->
+    <!-- isso executa o read do signal -->
+    <!--
+    // under the hood, faz um subscription, que sempre vai atualizar o valor qd ele mudar
+    // signal é mais eficiente que só com uma property na classe
+    // signals entrou no angular 16, ficou estável no 17 -->
+    <!-- <span>{{ selectedUser().name }}</span> -->
+  </button>
+</app-card>
